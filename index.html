@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Design System — Visual Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ─── Reset & Base ──────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F1A2E;
+    --navy-mid: #1C2D4A;
+    --navy-light: #2E4066;
+    --steel: #4A5568;
+    --gold: #B8860B;
+    --gold-light: #D4A843;
+    --gold-faint: #FAF6ED;
+    --positive: #1A6B4E;
+    --positive-faint: #F0F9F4;
+    --negative: #9B1B1B;
+    --negative-faint: #FDF2F2;
+    --bg: #FFFFFF;
+    --bg-warm: #FAFAF8;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B7280;
+    --border: #E5E5E5;
+    --border-strong: #D1D5DB;
+    --muted-bg: #F5F5F3;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  ::selection {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  /* ─── Layout ────────────────────────────────────────────────────── */
+  .container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 56px 48px 72px;
+  }
+
+  section {
+    margin-bottom: 80px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 56px;
+    max-width: 560px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    margin-top: 36px;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+
+  /* ─── Color Swatches ────────────────────────────────────────────── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .swatch {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .swatch:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .swatch-color {
+    height: 88px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 14px;
+  }
+
+  .swatch-color span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 6px;
+    background: rgba(255,255,255,0.85);
+    color: var(--text-primary);
+  }
+  .swatch-color span.on-dark {
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+  }
+
+  .swatch-info {
+    padding: 10px 14px;
+  }
+
+  .swatch-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .swatch-role {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* ─── 60-30-10 Visual ───────────────────────────────────────────── */
+  .ratio-bar {
+    display: flex;
+    height: 44px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+  }
+  .ratio-bar > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .ratio-labels {
+    display: flex;
+    gap: 28px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+  }
+  .ratio-labels span::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .ratio-labels .n::before { background: var(--steel); }
+  .ratio-labels .p::before { background: var(--navy); }
+  .ratio-labels .a::before { background: var(--gold); }
+
+  /* ─── Typography ────────────────────────────────────────────────── */
+  .type-specimen {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin-bottom: 16px;
+  }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+
+  .type-meta {
+    min-width: 200px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .type-sample-serif-28 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .type-sample-serif-20 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .type-sample-16 { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+  .type-sample-14 { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+  .type-sample-13 { font-size: 13px; color: var(--text-primary); line-height: 1.7; }
+  .type-sample-11 {
+    font-size: 11px; font-weight: 600; color: var(--steel);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .type-sample-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+  .type-sample-caption { font-size: 11px; color: var(--text-secondary); }
+
+  /* ─── KPI Cards ─────────────────────────────────────────────────── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+  }
+
+  .kpi-card {
+    background: var(--bg);
+    padding: 28px 24px;
+    text-align: left;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .kpi-card:last-child { border-right: none; }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--navy);
+  }
+
+  .kpi-delta {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.3px;
+  }
+  .kpi-delta.positive { color: var(--positive); }
+  .kpi-delta.negative { color: var(--negative); }
+
+  .kpi-value {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .kpi-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* ─── Charts ────────────────────────────────────────────────────── */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .chart-grid { grid-template-columns: 1fr; }
+  }
+
+  .chart-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+
+  .chart-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .chart-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 160px;
+    padding-top: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .bar {
+    width: 70%;
+    max-width: 40px;
+    min-height: 4px;
+    position: relative;
+  }
+
+  .bar-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    flex-shrink: 0;
+    letter-spacing: 0.3px;
+  }
+
+  .bar-value {
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-secondary);
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .line-chart-area {
+    height: 160px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+
+  .line-chart-area svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ─── Tables ────────────────────────────────────────────────────── */
+  .demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #FFFFFF;
+  }
+
+  .demo-table thead th {
+    background: var(--navy);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .demo-table thead th.num {
+    text-align: right;
+  }
+
+  .demo-table tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .demo-table tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+
+  .demo-table tbody tr:nth-child(even) {
+    background: var(--bg-warm);
+  }
+
+  .demo-table tbody tr:hover {
+    background: var(--gold-faint);
+  }
+
+  .demo-table tbody tr td:first-child {
+    font-weight: 500;
+  }
+
+  .positive-val { color: var(--positive); font-weight: 600; }
+  .negative-val { color: var(--negative); font-weight: 600; }
+
+  /* ─── Report Preview ────────────────────────────────────────────── */
+  .report-preview {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 48px;
+    max-width: 700px;
+  }
+
+  .report-preview h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .report-preview .rp-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .report-preview .rp-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .report-preview hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  .report-preview .rp-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .report-preview .rp-body {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .report-preview .insight-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+
+  .report-preview .insight-list li {
+    font-size: 14px;
+    color: var(--text-primary);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .insight-list li:last-child { border-bottom: none; }
+
+  .insight-icon { margin-right: 8px; font-size: 13px; }
+  .insight-icon.up { color: var(--positive); }
+  .insight-icon.down { color: var(--negative); }
+  .insight-icon.key { color: var(--gold); }
+
+  .report-preview .callout {
+    background: var(--gold-faint);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin: 20px 0;
+    line-height: 1.7;
+  }
+
+  .rec-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .rec-tag.high { background: var(--navy); color: #fff; }
+  .rec-tag.med  { background: var(--gold); color: #fff; }
+  .rec-tag.low  { background: var(--border-strong); color: var(--steel); }
+
+  /* ─── Semantic Colors ───────────────────────────────────────────── */
+  .semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+  }
+
+  .semantic-card {
+    padding: 28px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .semantic-card:last-child { border-right: none; }
+
+  .semantic-card .sem-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .semantic-card .sem-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .semantic-card .sem-usage {
+    font-size: 12px;
+    opacity: 0.9;
+  }
+
+  .sem-negative {
+    background: var(--navy);
+    color: #fff;
+  }
+  .sem-positive {
+    background: var(--positive);
+    color: #fff;
+  }
+  .sem-highlight {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  /* ─── Palette Rows ──────────────────────────────────────────────── */
+  .palette-row {
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    height: 36px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+  }
+  .palette-row > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .palette-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── Writing style ─────────────────────────────────────────────── */
+  .writing-example {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .writing-box {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .writing-bad {
+    background: var(--negative-faint);
+    border-right: 1px solid var(--border);
+  }
+  .writing-good {
+    background: var(--positive-faint);
+  }
+
+  .writing-box .wb-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+  .writing-bad .wb-label { color: var(--negative); }
+  .writing-good .wb-label { color: var(--positive); }
+
+  /* ─── Divider with label ────────────────────────────────────────── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 28px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .section-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── Footer ────────────────────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 48px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border-top: 2px solid var(--navy);
+    margin-top: 48px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── Toast ─────────────────────────────────────────────────────── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 200;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section>
+    <h1>DS Design System</h1>
+    <p class="hero-sub">
+      Strategy-grade visual system for executive reporting, data analytics, and management consulting deliverables.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- COLORS                                                        -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="colors">
+    <h2>Color Palette</h2>
+
+    <h3>Core Palette</h3>
+    <div class="color-grid">
+      <div class="swatch" onclick="copyColor('#0F1A2E')">
+        <div class="swatch-color" style="background:#0F1A2E"><span class="on-dark">#0F1A2E</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy</div>
+          <div class="swatch-role">Primary · Headers · Default charts</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#B8860B')">
+        <div class="swatch-color" style="background:#B8860B"><span>#B8860B</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold</div>
+          <div class="swatch-role">Key insight · Emphasis · Highlights</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#1A6B4E')">
+        <div class="swatch-color" style="background:#1A6B4E"><span>#1A6B4E</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Forest</div>
+          <div class="swatch-role">Growth · Positive · Success</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#9B1B1B')">
+        <div class="swatch-color" style="background:#9B1B1B"><span>#9B1B1B</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Burgundy</div>
+          <div class="swatch-role">Decline · Risk · Negative</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Neutrals</h3>
+    <div class="color-grid">
+      <div class="swatch" onclick="copyColor('#FFFFFF')">
+        <div class="swatch-color" style="background:#FFFFFF; border-bottom:1px solid #E5E5E5"><span>#FFFFFF</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-role">Page background</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#FAFAF8')">
+        <div class="swatch-color" style="background:#FAFAF8; border-bottom:1px solid #E5E5E5"><span>#FAFAF8</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm White</div>
+          <div class="swatch-role">Panels · Alternating rows</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#1A1A1A')">
+        <div class="swatch-color" style="background:#1A1A1A"><span class="on-dark">#1A1A1A</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Primary Text</div>
+          <div class="swatch-role">Headings · Body text</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#6B7280')">
+        <div class="swatch-color" style="background:#6B7280"><span class="on-dark">#6B7280</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Secondary Text</div>
+          <div class="swatch-role">Labels · Captions · Axes</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#4A5568')">
+        <div class="swatch-color" style="background:#4A5568"><span class="on-dark">#4A5568</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Steel</div>
+          <div class="swatch-role">Subheadings · Tertiary elements</div>
+        </div>
+      </div>
+      <div class="swatch" onclick="copyColor('#E5E5E5')">
+        <div class="swatch-color" style="background:#E5E5E5"><span>#E5E5E5</span></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border</div>
+          <div class="swatch-role">Dividers · Gridlines</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Extended</h3>
+    <div class="color-grid">
+      <div class="swatch" onclick="copyColor('#1C2D4A')">
+        <div class="swatch-color" style="background:#1C2D4A"><span class="on-dark">#1C2D4A</span></div>
+        <div class="swatch-info"><div class="swatch-name">Navy Mid</div><div class="swatch-role">Secondary navy elements</div></div>
+      </div>
+      <div class="swatch" onclick="copyColor('#2E4066')">
+        <div class="swatch-color" style="background:#2E4066"><span class="on-dark">#2E4066</span></div>
+        <div class="swatch-info"><div class="swatch-name">Navy Light</div><div class="swatch-role">Tertiary navy elements</div></div>
+      </div>
+      <div class="swatch" onclick="copyColor('#D4A843')">
+        <div class="swatch-color" style="background:#D4A843"><span>#D4A843</span></div>
+        <div class="swatch-info"><div class="swatch-name">Gold Light</div><div class="swatch-role">Secondary gold elements</div></div>
+      </div>
+      <div class="swatch" onclick="copyColor('#FAF6ED')">
+        <div class="swatch-color" style="background:#FAF6ED; border-bottom:1px solid #E5E5E5"><span>#FAF6ED</span></div>
+        <div class="swatch-info"><div class="swatch-name">Gold Faint</div><div class="swatch-role">Callouts · Highlights</div></div>
+      </div>
+      <div class="swatch" onclick="copyColor('#F0F9F4')">
+        <div class="swatch-color" style="background:#F0F9F4; border-bottom:1px solid #E5E5E5"><span>#F0F9F4</span></div>
+        <div class="swatch-info"><div class="swatch-name">Positive Faint</div><div class="swatch-role">Success backgrounds</div></div>
+      </div>
+      <div class="swatch" onclick="copyColor('#FDF2F2')">
+        <div class="swatch-color" style="background:#FDF2F2; border-bottom:1px solid #E5E5E5"><span>#FDF2F2</span></div>
+        <div class="swatch-info"><div class="swatch-name">Negative Faint</div><div class="swatch-role">Risk backgrounds</div></div>
+      </div>
+    </div>
+
+    <!-- Semantic Colors -->
+    <h3>Semantic Meaning</h3>
+    <div class="semantic-grid">
+      <div class="semantic-card sem-negative">
+        <div class="sem-icon">&#9660;</div>
+        <div class="sem-label">Risk / Decline</div>
+        <div class="sem-usage">Loss · Critical · Negative</div>
+      </div>
+      <div class="semantic-card sem-positive">
+        <div class="sem-icon">&#9650;</div>
+        <div class="sem-label">Growth / Positive</div>
+        <div class="sem-usage">Success · Gain · On Track</div>
+      </div>
+      <div class="semantic-card sem-highlight">
+        <div class="sem-icon">&#9670;</div>
+        <div class="sem-label">Key Insight</div>
+        <div class="sem-usage">Emphasis · Highlight · Finding</div>
+      </div>
+    </div>
+
+    <!-- 60-30-10 Rule -->
+    <h3>60-30-10 Rule</h3>
+    <div class="ratio-bar">
+      <div style="flex:6; background: var(--steel);">60% Neutrals</div>
+      <div style="flex:3; background: var(--navy);">30% Navy</div>
+      <div style="flex:1; background: var(--gold);">10%</div>
+    </div>
+    <div class="ratio-labels">
+      <span class="n">White, warm white, text, borders</span>
+      <span class="p">Navy — anchors all visual weight</span>
+      <span class="a">Gold — reserved for key moments</span>
+    </div>
+
+    <!-- Chart Palettes -->
+    <h3>Chart Palettes</h3>
+
+    <div class="palette-label">Single Series (default)</div>
+    <div class="palette-row">
+      <div style="background:#0F1A2E">#0F1A2E</div>
+    </div>
+
+    <div class="palette-label">Two Series</div>
+    <div class="palette-row">
+      <div style="background:#0F1A2E">#0F1A2E</div>
+      <div style="background:#2E4066">#2E4066</div>
+    </div>
+
+    <div class="palette-label">Comparison (actual vs. target)</div>
+    <div class="palette-row">
+      <div style="background:#0F1A2E">#0F1A2E</div>
+      <div style="background:#B8860B">#B8860B</div>
+    </div>
+
+    <div class="palette-label">Full (multi-series)</div>
+    <div class="palette-row">
+      <div style="background:#0F1A2E">#0F1A2E</div>
+      <div style="background:#2E4066">#2E4066</div>
+      <div style="background:#B8860B">#B8860B</div>
+      <div style="background:#4A5568">#4A5568</div>
+    </div>
+
+    <div class="palette-label">Sequential</div>
+    <div class="palette-row">
+      <div style="background:#2E4066">#2E4066</div>
+      <div style="background:#1C2D4A">#1C2D4A</div>
+      <div style="background:#0F1A2E">#0F1A2E</div>
+    </div>
+
+    <div class="palette-label">Diverging</div>
+    <div class="palette-row">
+      <div style="background:#9B1B1B">#9B1B1B</div>
+      <div style="background:#E5E5E5; color: var(--text-primary)">Neutral</div>
+      <div style="background:#1A6B4E">#1A6B4E</div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TYPOGRAPHY                                                     -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="typography">
+    <h2>Typography</h2>
+    <p>DM Serif Display for titles and KPI values. Inter for body. IBM Plex Mono for data.</p>
+
+    <div class="type-specimen">
+      <div class="type-row">
+        <div class="type-meta">Report Title · Serif · 28px</div>
+        <div class="type-sample-serif-28">Strategic Revenue Analysis: FY 2026</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Section Heading · Serif · 20px</div>
+        <div class="type-sample-serif-20">Regional Performance &amp; Market Outlook</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Subsection · Sans · 16px · Bold</div>
+        <div class="type-sample-16">Revenue Concentration Risk</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Chart Title · Sans · 14px · 600</div>
+        <div class="type-sample-14">EMEA accounts for 42% of total enterprise pipeline</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Body Text · Sans · 13px</div>
+        <div class="type-sample-13">Total revenue reached $13.5M in FY 2025, exceeding the annual target by 3.4%. This growth was driven primarily by enterprise adoption in EMEA and expansion revenue from existing accounts.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Label · Sans · 11px · Upper</div>
+        <div class="type-sample-11">Region &nbsp;&nbsp;&nbsp; Revenue &nbsp;&nbsp;&nbsp; Growth &nbsp;&nbsp;&nbsp; vs. Target</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Data · Mono · 13px</div>
+        <div class="type-sample-mono">$4,521,300 &nbsp;|&nbsp; +12.3% YoY &nbsp;|&nbsp; 1,247 accounts</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Caption · Sans · 11px</div>
+        <div class="type-sample-caption">Source: Internal analytics platform · FY 2025 audited figures · All amounts in USD</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- KPI CARDS                                                      -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="kpis">
+    <h2>KPI Cards</h2>
+    <p>Executive-level headline metrics. Navy top bar anchors visual weight. Left-aligned for scanning.</p>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-delta positive">&#9650; +8.7%</div>
+        <div class="kpi-value">$13.5M</div>
+        <div class="kpi-label">Total Revenue</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-delta positive">&#9650; +5.1%</div>
+        <div class="kpi-value">1,247</div>
+        <div class="kpi-label">Active Accounts</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-delta negative">&#9660; -0.3%</div>
+        <div class="kpi-value">94.2%</div>
+        <div class="kpi-label">Client Retention</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-delta positive">&#9650; +3.4%</div>
+        <div class="kpi-value">$10.8K</div>
+        <div class="kpi-label">Revenue / Account</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- CHARTS                                                         -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="charts">
+    <h2>Chart Styles</h2>
+    <p>Restrained palette. Navy dominates. Gold only for the key insight. No decorative elements.</p>
+
+    <div class="chart-grid">
+      <!-- Bar Chart -->
+      <div class="chart-card">
+        <div class="chart-title">EMEA leads enterprise pipeline at $4.5M</div>
+        <div class="chart-subtitle">Annual revenue by region ($K)</div>
+        <div class="bar-chart">
+          <div class="bar-group">
+            <div class="bar" style="height:130px; background:var(--gold); position:relative"><span class="bar-value">$4,521</span></div>
+            <div class="bar-label">EMEA</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:91px; background:var(--navy); position:relative"><span class="bar-value">$3,187</span></div>
+            <div class="bar-label">NA</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:84px; background:var(--navy); position:relative"><span class="bar-value">$2,943</span></div>
+            <div class="bar-label">APAC</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:35px; background:var(--navy); position:relative"><span class="bar-value">$1,205</span></div>
+            <div class="bar-label">LATAM</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:19px; background:var(--navy); position:relative"><span class="bar-value">$654</span></div>
+            <div class="bar-label">MEA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Bar Chart -->
+      <div class="chart-card">
+        <div class="chart-title">Q4 actual exceeded target by $180K</div>
+        <div class="chart-subtitle">Quarterly performance: Actual vs. Target ($K)</div>
+        <div class="bar-chart">
+          <div class="bar-group" style="flex-direction:row; align-items:flex-end; gap:3px">
+            <div class="bar" style="height:100px; background:var(--navy); width:18px"></div>
+            <div class="bar" style="height:104px; background:var(--gold); width:18px"></div>
+          </div>
+          <div class="bar-group" style="flex-direction:row; align-items:flex-end; gap:3px">
+            <div class="bar" style="height:113px; background:var(--navy); width:18px"></div>
+            <div class="bar" style="height:110px; background:var(--gold); width:18px"></div>
+          </div>
+          <div class="bar-group" style="flex-direction:row; align-items:flex-end; gap:3px">
+            <div class="bar" style="height:118px; background:var(--navy); width:18px"></div>
+            <div class="bar" style="height:118px; background:var(--gold); width:18px"></div>
+          </div>
+          <div class="bar-group" style="flex-direction:row; align-items:flex-end; gap:3px">
+            <div class="bar" style="height:135px; background:var(--navy); width:18px"></div>
+            <div class="bar" style="height:126px; background:var(--gold); width:18px"></div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-around; margin-top:8px; font-size:11px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px">
+          <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
+        </div>
+        <div style="display:flex; justify-content:center; gap:24px; margin-top:8px; font-size:12px; color:var(--text-secondary)">
+          <span><span style="display:inline-block;width:10px;height:10px;background:var(--navy);margin-right:4px;vertical-align:middle"></span>Actual</span>
+          <span><span style="display:inline-block;width:10px;height:10px;background:var(--gold);margin-right:4px;vertical-align:middle"></span>Target</span>
+        </div>
+      </div>
+
+      <!-- Line Chart -->
+      <div class="chart-card">
+        <div class="chart-title">Revenue surpassed target from November onward</div>
+        <div class="chart-subtitle">Monthly revenue vs. target ($K)</div>
+        <div class="line-chart-area">
+          <svg viewBox="0 0 400 160" preserveAspectRatio="none">
+            <line x1="0" y1="40" x2="400" y2="40" stroke="#E5E5E5" stroke-width="0.5" stroke-dasharray="4"/>
+            <line x1="0" y1="80" x2="400" y2="80" stroke="#E5E5E5" stroke-width="0.5" stroke-dasharray="4"/>
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#E5E5E5" stroke-width="0.5" stroke-dasharray="4"/>
+            <!-- Target (gold, dashed) -->
+            <polyline points="0,140 36,132 73,124 109,116 145,108 182,100 218,92 255,84 291,76 327,68 364,60 400,52"
+                      fill="none" stroke="#B8860B" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="6,4"/>
+            <!-- Area fill -->
+            <polygon points="0,136 36,128 73,118 109,110 145,100 182,92 218,84 255,88 291,72 327,56 364,44 400,32 400,160 0,160"
+                      fill="url(#navyGrad)" stroke="none"/>
+            <!-- Revenue line -->
+            <polyline points="0,136 36,128 73,118 109,110 145,100 182,92 218,84 255,88 291,72 327,56 364,44 400,32"
+                      fill="none" stroke="#0F1A2E" stroke-width="2"/>
+            <circle cx="0" cy="136" r="2.5" fill="#0F1A2E"/>
+            <circle cx="73" cy="118" r="2.5" fill="#0F1A2E"/>
+            <circle cx="145" cy="100" r="2.5" fill="#0F1A2E"/>
+            <circle cx="218" cy="84" r="2.5" fill="#0F1A2E"/>
+            <circle cx="291" cy="72" r="2.5" fill="#0F1A2E"/>
+            <circle cx="364" cy="44" r="2.5" fill="#0F1A2E"/>
+            <circle cx="400" cy="32" r="2.5" fill="#0F1A2E"/>
+            <defs>
+              <linearGradient id="navyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0F1A2E" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#0F1A2E" stop-opacity="0.01"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div style="display:flex; justify-content:center; gap:24px; margin-top:4px; font-size:12px; color:var(--text-secondary)">
+          <span><span style="display:inline-block;width:14px;height:2px;background:var(--navy);margin-right:4px;vertical-align:middle"></span>Actual</span>
+          <span><span style="display:inline-block;width:14px;height:2px;background:var(--gold);margin-right:4px;vertical-align:middle;opacity:0.5"></span>Target</span>
+        </div>
+      </div>
+
+      <!-- Waterfall Chart -->
+      <div class="chart-card">
+        <div class="chart-title">Enterprise segment added $1.2M to base</div>
+        <div class="chart-subtitle">Revenue bridge ($K)</div>
+        <div class="bar-chart" style="align-items:flex-end; gap:8px">
+          <div class="bar-group">
+            <div class="bar" style="height:115px; background:var(--navy); position:relative; max-width:32px"><span class="bar-value">3,200</span></div>
+            <div class="bar-label">Base</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:34px; background:var(--positive); position:relative; max-width:32px; margin-bottom:115px"><span class="bar-value">+1,200</span></div>
+            <div class="bar-label">New</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:14px; background:var(--positive); position:relative; max-width:32px; margin-bottom:140px"><span class="bar-value">+480</span></div>
+            <div class="bar-label">Expand</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:16px; background:var(--negative); position:relative; max-width:32px; margin-bottom:138px"><span class="bar-value">-560</span></div>
+            <div class="bar-label">Churn</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:6px; background:var(--negative); position:relative; max-width:32px; margin-bottom:132px"><span class="bar-value">-200</span></div>
+            <div class="bar-label">Downgr.</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar" style="height:140px; background:var(--navy); position:relative; max-width:32px"><span class="bar-value">4,120</span></div>
+            <div class="bar-label" style="font-weight:600">Total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- TABLES                                                         -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="tables">
+    <h2>Table Design</h2>
+    <p>Navy header band. Minimal horizontal rules. Right-aligned numerics. Conditional color for variance.</p>
+
+    <table class="demo-table">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th class="num">Revenue</th>
+          <th class="num">Accounts</th>
+          <th class="num">Growth</th>
+          <th class="num">vs. Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EMEA</td>
+          <td class="num">$4,521,300</td>
+          <td class="num">412</td>
+          <td class="num positive-val">+12.3%</td>
+          <td class="num positive-val">+3.4%</td>
+        </tr>
+        <tr>
+          <td>North America</td>
+          <td class="num">$3,187,200</td>
+          <td class="num">298</td>
+          <td class="num positive-val">+8.7%</td>
+          <td class="num positive-val">+1.2%</td>
+        </tr>
+        <tr>
+          <td>Asia Pacific</td>
+          <td class="num">$2,943,100</td>
+          <td class="num">267</td>
+          <td class="num negative-val">-3.1%</td>
+          <td class="num negative-val">-5.8%</td>
+        </tr>
+        <tr>
+          <td>Latin America</td>
+          <td class="num">$1,205,400</td>
+          <td class="num">134</td>
+          <td class="num positive-val">+1.2%</td>
+          <td class="num negative-val">-0.4%</td>
+        </tr>
+        <tr>
+          <td>Middle East &amp; Africa</td>
+          <td class="num">$987,600</td>
+          <td class="num">89</td>
+          <td class="num positive-val">+15.8%</td>
+          <td class="num positive-val">+8.2%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- REPORT STRUCTURE                                               -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="reports">
+    <h2>Report Structure</h2>
+    <p>Consulting-standard format. Title, executive summary, key findings, analysis, recommendations.</p>
+
+    <div class="report-preview">
+      <h4>Strategic Revenue Analysis</h4>
+      <div class="rp-subtitle">FY 2025 Annual Performance Review</div>
+      <div class="rp-meta">Prepared by: Strategy &amp; Analytics Practice &nbsp;|&nbsp; March 2026</div>
+
+      <hr>
+
+      <div class="rp-section-title">Executive Summary</div>
+      <div class="rp-body">
+        Total revenue reached $13.5M in FY 2025, exceeding the annual target by 3.4%.
+        EMEA and North America accounted for 57% of total revenue, while MEA emerged as
+        the fastest-growing region at +15.8% YoY. Asia Pacific posted its first annual
+        decline (-3.1%), driven by reduced enterprise spending in Q3. Immediate strategic
+        intervention is required to stabilize the APAC segment ahead of FY 2026 planning.
+      </div>
+
+      <hr>
+
+      <div class="rp-section-title">Key Findings</div>
+      <ul class="insight-list">
+        <li><span class="insight-icon up">&#9650;</span> Total revenue +8.7% YoY to $13.5M, exceeding target by $450K</li>
+        <li><span class="insight-icon up">&#9650;</span> MEA grew 15.8%, the fastest of any region — driven by 12 new enterprise accounts</li>
+        <li><span class="insight-icon down">&#9660;</span> APAC declined 3.1% — first negative year in five years</li>
+        <li><span class="insight-icon key">&#9670;</span> Client acquisition cost increased 12%, warranting efficiency review across all regions</li>
+      </ul>
+
+      <hr>
+
+      <div class="rp-section-title">Analysis</div>
+      <div class="rp-body">
+        EMEA generated $4.5M (34% of total), maintaining its dominant position. North America
+        contributed $3.2M with steady 8.7% growth. The top two regions combined represent a
+        concentration risk — any disruption to EMEA's enterprise segment would impact over a
+        third of total revenue.
+      </div>
+      <div class="callout">
+        <strong>Key Finding:</strong> MEA's 15.8% growth was driven entirely by new enterprise accounts
+        acquired in H2, suggesting a replicable playbook for LATAM expansion.
+      </div>
+
+      <hr>
+
+      <div class="rp-section-title">Recommendations</div>
+      <ul class="insight-list">
+        <li><span class="rec-tag high">Critical</span> Launch APAC recovery program: target 5 new enterprise accounts by Q2 2026</li>
+        <li><span class="rec-tag med">Medium</span> Replicate MEA enterprise playbook in LATAM — pilot program Q1 2026</li>
+        <li><span class="rec-tag low">Low</span> Reduce EMEA concentration risk by growing NA's share to 30% within 18 months</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- WRITING STYLE                                                  -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section id="writing">
+    <h2>Writing Style</h2>
+    <p>Authoritative. Insight-first. Every sentence serves the decision-maker.</p>
+
+    <h3>Chart Titles</h3>
+    <div class="writing-example">
+      <div class="writing-box writing-bad">
+        <div class="wb-label">Avoid</div>
+        "Revenue by Region"<br>
+        "Monthly Active Users Over Time"<br>
+        "Comparison of Actual vs Budget"
+      </div>
+      <div class="writing-box writing-good">
+        <div class="wb-label">Use</div>
+        "EMEA leads enterprise pipeline at $4.5M"<br>
+        "User growth stalled in Q3 after 18 months of gains"<br>
+        "Q4 actual exceeded target by $180K"
+      </div>
+    </div>
+
+    <h3>Analysis Paragraphs</h3>
+    <div class="writing-example">
+      <div class="writing-box writing-bad">
+        <div class="wb-label">Avoid</div>
+        "Looking at the data, it is interesting to note that there was a decline in the APAC region.
+         Various factors may have contributed to this decline, and it should be noted that further
+         analysis may be needed."
+      </div>
+      <div class="writing-box writing-good">
+        <div class="wb-label">Use</div>
+        "APAC revenue declined 3.1%, driven by a 15% drop in enterprise renewals in Q3.
+         This represents a $940K shortfall against targets. Redirecting acquisition spend to
+         the mid-market segment can offset 60% of the gap by Q2."
+      </div>
+    </div>
+
+    <h3>Number Formatting</h3>
+    <div class="type-specimen">
+      <div class="type-row">
+        <div class="type-meta">Currency</div>
+        <div class="type-sample-13">$4,521.3 &nbsp;·&nbsp; $1.2M &nbsp;·&nbsp; $3.4B</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Percentage</div>
+        <div class="type-sample-13"><span class="positive-val">+12.3%</span> &nbsp;·&nbsp; <span class="negative-val">-3.1%</span> &nbsp;·&nbsp; 0.0%</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Count</div>
+        <div class="type-sample-13">1,247 &nbsp;·&nbsp; 89 &nbsp;·&nbsp; 12,450</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Data (Monospace)</div>
+        <div class="type-sample-mono">$4,521,300 &nbsp;|&nbsp; +12.3% YoY &nbsp;|&nbsp; 412 accounts</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Year-over-Year</div>
+        <div class="type-sample-13"><span class="positive-val">+8.7% YoY</span> &nbsp;·&nbsp; <span class="negative-val">-2.1% QoQ</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  DS Design System &nbsp;&middot;&nbsp; Strategy-Grade Analytics<br>
+  dms1996
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+  function copyColor(hex) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const toast = document.getElementById('toast');
+      toast.textContent = 'Copied ' + hex;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1500);
+    });
+  }
+</script>
+
+</body>
+</html>
